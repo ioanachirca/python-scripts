@@ -17,7 +17,7 @@ for key,val in json_dict.items():
     if "avatar" in key:
         avatar_key = key
 pic_url = json_dict[str(avatar_key)]
-picname = username + "_gitpic"
+picname = "avatar_" + username  
 with open(picname, "wb") as img:
     img.write(urlopen(pic_url).read())
 image_type = imghdr.what(picname)
