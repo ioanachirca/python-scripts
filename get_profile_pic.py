@@ -4,7 +4,7 @@ import sys
 import json
 import imghdr
 import os
-
+from PIL import Image
 if len(sys.argv) == 1:
     print "Feed me a Github username"
     quit()
@@ -22,4 +22,7 @@ with open(picname, "wb") as img:
     img.write(urlopen(pic_url).read())
 image_type = imghdr.what(picname)
 os.rename(picname, picname + '.' + image_type)
+complete_picname = picname + "." + image_type
 print username + "'s Github avatar has been downloaded."
+img = Image.open(complete_picname)
+img.show()
